@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Signuppage/Signuppage.css";
+import "./ForgotPassword/ResetPassword.jsx";
 
 
 export default function ResetPassword() {
@@ -38,7 +38,6 @@ export default function ResetPassword() {
             Reset Password
           </button>
         </form>
-        <p>Your password is {password}</p>
       </div>
     </div>
   );

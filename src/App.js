@@ -1,13 +1,14 @@
 
-import SignupPage from './components/SignupPage/Signuppage.jsx'
-import LoginPage from './components/LoginPage/Loginpage.jsx';
+// import SignupPage from './components/Signuppage/Signuppage.jsx'
+import LoginPage from './components/LoginPage/LoginPage.jsx';
 // import ResetPassword from './components/ForgotPassword/ResetPassword.jsx'
 // import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx'
 
 function App() {
   return (
     <div className="App">
-      <SignupPage/>
+      {/* <SignupPage/> */}
+      <LoginPage />
     </div>
   );
 }

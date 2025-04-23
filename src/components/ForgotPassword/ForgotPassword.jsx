@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "../Signuppage/Signuppage.css";
+import "./ForgotPassword/ResetPassword.jsx";
 
 
 export default function ForgotPassword() {
@@ -13,6 +13,7 @@ export default function ForgotPassword() {
 
   const handleClick = async (e) => {
     e.preventDefault();
+    console.log("Logging in with:", email);
     // Enter firebase auth
   };
 
@@ -38,7 +39,6 @@ export default function ForgotPassword() {
             Get Reset Password Link
           </button>
         </form>
-        <p>Your email is: {email}</p>
       </div>
     </div>
   );
