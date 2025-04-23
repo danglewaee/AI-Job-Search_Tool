@@ -1,6 +1,6 @@
 
 // import SignupPage from './components/Signuppage/Signuppage.jsx'
-import LoginPage from './components/LoginPage/LoginPage.jsx';
+import LoginPage from './components/LoginPage/Loginpage.jsx';
 // import ResetPassword from './components/ForgotPassword/ResetPassword.jsx'
 // import ForgotPassword from './components/ForgotPassword/ForgotPassword.jsx'
 

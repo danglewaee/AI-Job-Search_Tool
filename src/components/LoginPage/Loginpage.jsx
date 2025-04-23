@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import "./Loginpage.css";
+import googleIcon from "../../assets/google.png";
+import githubIcon from "../../assets/github.png";
 
 const LoginPage = () => {
   const [usercreds, setusercreds] = useState({
@@ -18,52 +20,53 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Logging in with:", usercreds.email, usercreds.password);
-    // Enter firebase auth
+    // Call Firebase Auth or backend logic
   };
 
   return (
-    <>
-        <div class="login-container">
-          <h2>Login</h2>
-          <form>
-            <div class="input-group">
-              <input
-                onChange={handleCreds}
-                type="email"
-                name="email"
-                required
-                placeholder="Enter your email"
-              ></input>
-            </div>
-            <div class="input-group">
-              <input
-                onChange={handleCreds}
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-              />
-            </div>
-            <button onClick={handleLogin} type="submit" class="login-box" />
-          </form>
-
-          <div class="separator">
-            <span>Or login using</span>
+    <div className="login-page-wrapper">
+      <div className="login-container">
+        <h2>Login</h2>
+        <form onSubmit={handleLogin}>
+          <div className="input-group">
+            <input
+              type="email"
+              name="email"
+              value={usercreds.email}
+              onChange={handleCreds}
+              placeholder="Enter your email"
+              required
+            />
           </div>
-
-          {/* <!-- Social Buttons --> */}
-          <div class="social-buttons">
-            {/* <!-- Login with Google --> */}
-            <img alt="" />
-            {/* <!-- Login with Github --> */}=
-            <img alt="" src=""/>
+          <div className="input-group">
+            <input
+              type="password"
+              name="password"
+              value={usercreds.password}
+              onChange={handleCreds}
+              placeholder="Enter your password"
+              required
+            />
           </div>
+          <button type="submit">Login</button>
+        </form>
 
-          <div class="forgot-password">
-            <p>Forgot password?</p>
-          </div>
+        <div className="separator">
+          <span>Or login using</span>
         </div>
-    </>
+
+        <div className="social-buttons">
+          <img src={googleIcon} alt="Login with Google" />
+          <img src={githubIcon} alt="Login with GitHub" />
+        </div>
+
+        <div className="forgot-password">
+          <a href="#">Forgot password?</a>
+        </div>
+      </div>
+    </div>
   );
 };
+
 export default LoginPage;
+
