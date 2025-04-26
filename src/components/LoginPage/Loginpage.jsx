@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./Loginpage.css";
 import googleIcon from "../../assets/google.png";
 import githubIcon from "../../assets/github.png";
+import { Link } from "react-router-dom";
 
 const LoginPage = () => {
   const [usercreds, setusercreds] = useState({
@@ -20,7 +21,7 @@ const LoginPage = () => {
   const handleLogin = async (e) => {
     e.preventDefault();
     console.log("Logging in with:", usercreds.email, usercreds.password);
-    // Call Firebase Auth or backend logic
+    // TODO: Integrate with Firebase or your own backend here
   };
 
   return (
@@ -61,7 +62,8 @@ const LoginPage = () => {
         </div>
 
         <div className="forgot-password">
-          <a href="#">Forgot password?</a>
+        <Link className="forgot-password-link" to="/" >Forgot password</Link>
+        <p className="login-link">Don't have an account? <Link to="/signup">Sign up here</Link></p>
         </div>
       </div>
     </div>
@@ -69,4 +71,5 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
+
 

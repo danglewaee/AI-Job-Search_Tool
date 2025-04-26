@@ -164,12 +164,11 @@ margin: 0 12px;
     font-size: 13px;
     color: #777;
   }
-
   .social-buttons {
     display: flex;
     justify-content: center;
-    gap: 30px;
-    margin-bottom: 20px;
+    gap: 10px; /* Reduced spacing between buttons */
+    margin-bottom: 25px;
   }
 
   .social-buttons img {
@@ -231,6 +230,6 @@ margin: 0 12px;
     }
 
     .social-buttons {
-      gap: 20px;
+      
     }
   }
