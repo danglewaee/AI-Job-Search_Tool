@@ -60,6 +60,7 @@ const SignupPageBasic = () => {
         first_name: usercreds.firstname,
         last_name: usercreds.lastname,
         email: usercreds.email,
+        password:usercreds.password,
         dob: usercreds.dob,
         gender: usercreds.gender, // Now properly saved
         createdAt: new Date()
