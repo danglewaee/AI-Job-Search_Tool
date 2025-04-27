@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./ForgotPassword/ResetPassword.jsx";
+import "./ForgotPassword.css";
 
 
 export default function ResetPassword() {
@@ -13,16 +13,11 @@ export default function ResetPassword() {
 
   const handleReset = async (e) => {
     e.preventDefault();
-    // Enter Firebase auth
+    // Enter Firebase auth and route to confirmation.jsx
   };
 
   return (
     <div className="container">
-      <div className="sidebar">
-        <div className="step-indicator">
-          <div className="step active">Reset Password</div>
-        </div>
-      </div>
 
       <div className="form-container">
         <h2>Change your Password</h2>

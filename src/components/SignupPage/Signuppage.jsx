@@ -1,6 +1,4 @@
 import { Link } from "react-router-dom";
-
-
 import React, { useState } from 'react';
 import './Signuppage.css';
 import { auth, db } from '../firebaseconfig';
@@ -9,8 +7,9 @@ import { doc, setDoc } from "firebase/firestore";
 import arrowIcon from '../../assets/arrowblack.png';
 import googleIcon from '../../assets/google.png';
 import githubIcon from '../../assets/github.png';
+import { useNavigate } from 'react-router-dom';
 
-const SignupPage = () => {
+const SignupPageBasic = () => {
   const [usercreds, setusercreds] = useState({
     email: '',
     password: '',
@@ -20,6 +19,8 @@ const SignupPage = () => {
     dob: '',
     gender: '' // Initialize gender as empty string
   });
+
+  const navigate = useNavigate();
 
   // Updated handler for all inputs
   const handlecreds = (e) => {
@@ -64,7 +65,7 @@ const SignupPage = () => {
         createdAt: new Date()
       });
 
-      alert('Account created successfully!');
+      navigate('/signup-pref');
     } catch (error) {
       console.error("Full error:", error);
       alert(`Signup failed: ${error.message}`);
@@ -123,16 +124,6 @@ const SignupPage = () => {
             <div className="separator">
               <span>Or Signup using</span>
             </div>
-
-            <div className="social-buttons">
-              <button type="button" style={{ background:'none', border:'none' }}>
-                <img src={googleIcon} alt="Google" />
-              </button>
-              <button type="button" style={{ background:'none', border:'none' }}>
-                <img src={githubIcon} alt="GitHub" />
-              </button>
-            </div>
-
             <p className="login-link">Already have an account? <Link to="/">Login</Link></p>
           </form>
         </div>
@@ -141,4 +132,4 @@ const SignupPage = () => {
   );
 };
 
-export default SignupPage;
+export default SignupPageBasic;

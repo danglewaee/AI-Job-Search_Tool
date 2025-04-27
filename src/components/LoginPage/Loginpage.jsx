@@ -2,7 +2,13 @@ import React, { useState } from "react";
 import "./Loginpage.css";
 import googleIcon from "../../assets/google.png";
 import githubIcon from "../../assets/github.png";
+import { githubprovider, googleprovider } from "../firebaseconfig";
 import { Link } from "react-router-dom";
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
+import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
+import { auth, db } from '../firebaseconfig';
+import { onAuthStateChanged,GoogleAuthProvider, signOut,signInWithPopup, GithubAuthProvider } from "firebase/auth";
+
 
 const LoginPage = () => {
   const [usercreds, setusercreds] = useState({
@@ -17,11 +23,55 @@ const LoginPage = () => {
       [name]: value,
     }));
   };
+  const handlegithubauth = async (e) => {
+    console.log('github auth called successfully');
+  
+    try {
+      const result = await signInWithPopup(auth, githubprovider);
+      const user = result.user;
+      console.log("Github login successful:", user.email);
+      alert(`Github login successful: ${user.email}`);
+    } catch (error) {
+      console.error("Github login failed:", error.message);
+      alert(`Github login failed: ${error.message}`);
+    }
+  }
+  
+  const handlegoogleauth=async(e)=>{
+    
+
+    signInWithPopup(auth, googleprovider)
+      .then((result) => {
+        const user = result.user;
+        console.log("Google login successful:", user.email);
+        alert('google login successful',user.email)
+      })
+      .catch((error) => {
+        console.error("Google login failed:", error.message);
+        alert('there was an error')
+      });
+  }
 
   const handleLogin = async (e) => {
     e.preventDefault();
-    console.log("Logging in with:", usercreds.email, usercreds.password);
+   
+    // 
     // TODO: Integrate with Firebase or your own backend here
+
+    signInWithEmailAndPassword(auth, usercreds.email, usercreds.password)
+      .then((userCredential) => {
+        console.log(userCredential)
+        // Successful login
+        const user = userCredential.user;
+        console.log('Logged in as:', user.email);
+        alert(`Welcome back, ${user.email}!`);
+        // Optionally redirect:
+        // window.location.href = "/dashboard.html";
+      })
+      .catch((error) => {
+        console.error(error.code, error.message);
+        alert(`Login Failed: ${error.message}`);
+      });
   };
 
   return (
@@ -49,7 +99,7 @@ const LoginPage = () => {
               required
             />
           </div>
-          <button type="submit">Login</button>
+          <button type="submit" onSubmit="handleLogin">Login</button>
         </form>
 
         <div className="separator">
@@ -57,13 +107,17 @@ const LoginPage = () => {
         </div>
 
         <div className="social-buttons">
-          <img src={googleIcon} alt="Login with Google" />
-          <img src={githubIcon} alt="Login with GitHub" />
+        <img src={googleIcon} onClick={handlegoogleauth}alt="Login with Google" />
+          <img src={githubIcon} onClick={handlegithubauth} alt="Login with GitHub" />
         </div>
 
         <div className="forgot-password">
-        <Link className="forgot-password-link" to="/" >Forgot password</Link>
-        <p className="login-link">Don't have an account? <Link to="/signup">Sign up here</Link></p>
+          <Link className="forgot-password-link" to="/forgot-password">
+            Forgot password
+          </Link>
+          <p className="login-link">
+            Don't have an account? <Link to="/signup-basic">Sign up here</Link>
+          </p>
         </div>
       </div>
     </div>
@@ -71,5 +125,3 @@ const LoginPage = () => {
 };
 
 export default LoginPage;
-
-
