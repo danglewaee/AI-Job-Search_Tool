@@ -7,7 +7,9 @@ export default function Confirmation() {
     <div className="sent-container">
       <div className="sent-message">
         <h4>Password Updated Successfully!</h4>
-        <Link to="/"><p>Login</p></Link>
+        <Link to="/">
+          <button>Login</button>
+        </Link>
       </div>
     </div>
   );
