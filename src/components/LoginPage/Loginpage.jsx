@@ -8,9 +8,16 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/fireba
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
 import { auth, db } from '../firebaseconfig';
 import { onAuthStateChanged,GoogleAuthProvider, signOut,signInWithPopup, GithubAuthProvider } from "firebase/auth";
+import { FaEye, FaEyeSlash } from "react-icons/fa";
 
 
 const LoginPage = () => {
+  const [showPassword, setShowPassword] = useState(false);
+
+const togglePasswordVisibility = () => {
+  setShowPassword((prev) => !prev);
+};
+
   const [usercreds, setusercreds] = useState({
     email: "",
     password: "",
@@ -89,7 +96,8 @@ const LoginPage = () => {
               required
             />
           </div>
-          <div className="input-group">
+          {/* this is working forgot password block revert to this if show hide password doesnt wortk */}
+          {/* <div className="input-group">
             <input
               type="password"
               name="password"
@@ -98,7 +106,31 @@ const LoginPage = () => {
               placeholder="Enter your password"
               required
             />
-          </div>
+          </div> */}
+
+        <div className="input-group" style={{ position: "relative" }}>
+          <input
+            type={showPassword ? "text" : "password"}
+            name="password"
+            value={usercreds.password}
+            onChange={handleCreds}
+            placeholder="Enter your password"
+            required
+            style={{ paddingRight: "2.5rem" }}
+          />
+          <span
+            onClick={togglePasswordVisibility}
+            style={{
+              position: "absolute",
+              right: "10px",
+              top: "50%",
+              transform: "translateY(-50%)",
+              cursor: "pointer"
+            }}
+          >
+            {showPassword ? <FaEyeSlash /> : <FaEye />}
+          </span>
+        </div>
           <button type="submit" onSubmit="handleLogin">Login</button>
         </form>
 

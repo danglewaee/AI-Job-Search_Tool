@@ -65,7 +65,7 @@ const SignupPageBasic = () => {
         gender: usercreds.gender, // Now properly saved
         createdAt: new Date()
       });
-
+     alert('Details saved successfully')
       navigate('/signup-pref');
     } catch (error) {
       console.error("Full error:", error);
@@ -86,8 +86,8 @@ const SignupPageBasic = () => {
 
         <div className="form-container">
           <h2>Create your account</h2>
-          <form>
-            {/* Other form inputs remain the same */}
+          <form onSubmit={handlesignup}>
+            {/* have remoeved the required for testing purposes, re add it incase i forget to put it  */}
             <input onChange={handlecreds} type="email" name='email' required placeholder="Email address" />
             <input onChange={handlecreds} type="password" name='password' required placeholder="Password" />
             <input onChange={handlecreds} type="password" name='confirmpassword' required placeholder="Confirm your Password" />
@@ -95,30 +95,37 @@ const SignupPageBasic = () => {
             <input onChange={handlecreds} type="text" name='lastname' required placeholder="Last Name" />
             <input onChange={handlecreds} type="date" name='dob' required placeholder="Date of birth" />
 
-            {/* Updated gender options */}
+       
             <div className="gender-options">
-              <p>Enter your gender (Optional):</p>
-              <input 
-                type="radio" 
-                id="male" 
-                name="gender" 
-                value="Male" 
-                onChange={handlecreds}
-                checked={usercreds.gender === 'Male'}
-              />
-              <label htmlFor="male">Male</label>
-              <input 
-                type="radio" 
-                id="female" 
-                name="gender" 
-                value="Female" 
-                onChange={handlecreds}
-                checked={usercreds.gender === 'Female'}
-              />
-              <label htmlFor="female">Female</label>
+            <label style={{ display: 'inline-flex', alignItems: 'center', marginRight: '1rem' }}>
+  <input
+    type="radio"
+    name="gender"
+    value="Male"
+    onChange={handlecreds}
+    checked={usercreds.gender === 'Male'}
+    style={{ marginRight: '0.25rem' }}
+  />
+  Male
+</label>
+
+{/* Female */}
+<label style={{ display: 'inline-flex', alignItems: 'center' }}>
+  <input
+    type="radio"
+    name="gender"
+    value="Female"
+    onChange={handlecreds}
+    checked={usercreds.gender === 'Female'}
+    style={{ marginRight: '0.25rem' }}
+  />
+  Female
+</label>
+
             </div>
 
-            <button type="button" onClick={handlesignup} className="next-button">
+            <button type="submit"  className="next-button">
+            
               Next <img src={arrowIcon} alt="arrow" />
             </button>
 
