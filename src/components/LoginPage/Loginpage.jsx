@@ -148,7 +148,7 @@ const togglePasswordVisibility = () => {
             Forgot password
           </Link>
           <p className="login-link">
-            Don't have an account? <Link to="/signup-basic">Sign up here</Link>
+            Don't have an account? <Link to="/signup-basic">Sign Up</Link>
           </p>
         </div>
       </div>

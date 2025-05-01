@@ -65,7 +65,6 @@ const SignupPageBasic = () => {
         gender: usercreds.gender, // Now properly saved
         createdAt: new Date()
       });
-     alert('Details saved successfully')
       navigate('/signup-pref');
     } catch (error) {
       console.error("Full error:", error);
@@ -128,10 +127,6 @@ const SignupPageBasic = () => {
             
               Next <img src={arrowIcon} alt="arrow" />
             </button>
-
-            <div className="separator">
-              <span>Or Signup using</span>
-            </div>
             <p className="login-link">Already have an account? <Link to="/">Login</Link></p>
           </form>
         </div>

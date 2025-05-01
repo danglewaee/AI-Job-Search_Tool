@@ -140,7 +140,7 @@ const SignupPagePreferences = () => {
             <option value="advanced">Advanced</option>
           </select>
 
-          <label htmlFor="skills">Skills you know (CTRL+Click)</label>
+          <label htmlFor="skills">Skills you know (hold CTRL/COMMAND and click for multi-select)</label>
           <select id="skills" name="skills" onChange={handleChangeskills}multiple required>
             <p>Select a CS field first before seeing skills</p>
             {skillsOptions.map((skill) => (
@@ -179,7 +179,6 @@ const SignupPagePreferences = () => {
             Submit <img src={arrowIcon} alt="arrow" />
           </button>
         </form>
-        <p className="login-link">Need to edit information on previous page ? <Link to="/signup-basic">Basic information</Link></p>
       <p className="login-link">Access your account? <Link to="/">Login</Link></p>
       </div>
       
