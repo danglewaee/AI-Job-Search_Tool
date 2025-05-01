@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import React, { useState } from 'react';
 import './Signuppage.css';
-import { auth, db } from '../firebaseconfig';
+import { auth, db } from '../../firebaseconfig';
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc } from "firebase/firestore";
-import arrowIcon from '../../assets/arrowblack.png';
-import googleIcon from '../../assets/google.png';
-import githubIcon from '../../assets/github.png';
+import arrowIcon from '../../../assets/arrowblack.png';
+import googleIcon from '../../../assets/google.png';
+import githubIcon from '../../../assets/github.png';
 import { useNavigate } from 'react-router-dom';
 
 const SignupPageBasic = () => {

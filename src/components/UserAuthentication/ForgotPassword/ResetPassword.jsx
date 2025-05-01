@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./ForgotPassword.css";
 import { useLocation, useNavigate } from "react-router-dom";
-import { auth } from "../firebaseconfig";
+import { auth } from "../../firebaseconfig.js";
 import { confirmPasswordReset, verifyPasswordResetCode } from "firebase/auth";
 
 export default function ResetPassword() {

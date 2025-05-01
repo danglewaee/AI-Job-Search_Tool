@@ -2,10 +2,10 @@
 import { Link } from "react-router-dom";
 import React, { useState } from "react";
 import "./Preferences.css";
-import { auth, db } from "../firebaseconfig";
+import { auth, db } from "../../firebaseconfig";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { doc, setDoc,updateDoc } from "firebase/firestore";
-import arrowIcon from "../../assets/arrowblack.png";
+import arrowIcon from "../../../assets/arrowblack.png";
 
 import { useNavigate } from "react-router-dom";
 const SignupPagePreferences = () => {

@@ -1,12 +1,12 @@
 import React, { useState } from "react";
 import "./Loginpage.css";
-import googleIcon from "../../assets/google.png";
-import githubIcon from "../../assets/github.png";
-import { githubprovider, googleprovider } from "../firebaseconfig";
+import googleIcon from "../../../assets/google.png";
+import githubIcon from "../../../assets/github.png";
+import { githubprovider, googleprovider } from "../../firebaseconfig";
 import { Link } from "react-router-dom";
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-app.js";
 import { getAuth, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/10.11.0/firebase-auth.js";
-import { auth, db } from '../firebaseconfig';
+import { auth, db } from '../../firebaseconfig';
 import { onAuthStateChanged,GoogleAuthProvider, signOut,signInWithPopup, GithubAuthProvider } from "firebase/auth";
 import { FaEye, FaEyeSlash } from "react-icons/fa";
 
