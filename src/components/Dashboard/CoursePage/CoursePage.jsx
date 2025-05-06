@@ -21,13 +21,6 @@ export default function CoursePage() {
       );
       const data = await response.json();
       setVideoData(data.items);
-      console.log(videoData);
-      videoData.map((video) => {
-        console.log("Title: " + video.snippet.title);
-        console.log("Channel: " + video.snippet.channelTitle);
-        console.log("Video Description: " + video.snippet.description);
-        console.log("");
-      });
     } catch (err) {
       console.error(err);
     }
