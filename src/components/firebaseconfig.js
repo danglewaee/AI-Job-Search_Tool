@@ -28,5 +28,4 @@ const auth = getAuth(app);
 const db = getFirestore(app);
 const googleprovider=new GoogleAuthProvider()
 const githubprovider=new GithubAuthProvider()
-console.log('db is',db)
 export { auth, db,googleprovider,githubprovider };

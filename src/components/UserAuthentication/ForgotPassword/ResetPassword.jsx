@@ -14,7 +14,6 @@ export default function ResetPassword() {
   const oobCode = query.get("oobCode");
 
   useEffect(() => {
-    // ✅ Step 1: Verify the reset code
     if (!oobCode) {
       console.log("Invalid Link");
       return;

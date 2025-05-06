@@ -7,6 +7,7 @@ import ResetPassword from './components/UserAuthentication/ForgotPassword/ResetP
 import ForgotPassword from './components/UserAuthentication/ForgotPassword/ForgotPassword.jsx'
 import Sent from './components/UserAuthentication/ForgotPassword/Sent.jsx'
 import Confirmation from './components/UserAuthentication/ForgotPassword/Confirmation.jsx'
+import CoursePage from './components/Dashboard/CoursePage/CoursePage.jsx'
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
     <Route path="/reset-password" element={<ResetPassword/>} />
     <Route path="/sent" element={<Sent/>} />
     <Route path="/confirmation" element={<Confirmation/>} />
+    <Route path="/course-page" element={<CoursePage/>} />
     
       
     </Routes>
