@@ -4,7 +4,7 @@ import youtube from "./youtube.json";
 import { Link } from "react-router-dom";
 
 export default function CoursePage() {
-  const API_KEY = "*****";
+  const API_KEY = "****"; // Add environment variable API Key
   const [searchQuery, setSearchQuery] = useState("");
   const [videoData, setVideoData] = useState([]);
 
@@ -23,6 +23,7 @@ export default function CoursePage() {
       setVideoData(data.items);
     } catch (err) {
       console.error(err);
+      setVideoData([{}, {}]);
     }
   };
 
