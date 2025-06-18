@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import Tree from 'react-d3-tree';
-import rawData from '../data/roadmapData.json';
+import rawData from '../components/RoadmapPage/roadmapData.json';
 
 function formatTree(raw) {
   const groups = raw.reduce((acc, item) => {
