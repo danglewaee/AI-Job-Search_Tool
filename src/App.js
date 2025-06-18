@@ -8,6 +8,7 @@ import ForgotPassword from './components/UserAuthentication/ForgotPassword/Forgo
 import Sent from './components/UserAuthentication/ForgotPassword/Sent.jsx'
 import Confirmation from './components/UserAuthentication/ForgotPassword/Confirmation.jsx'
 import CoursePage from './components/Dashboard/CoursePage/CoursePage.jsx'
+import FilterPage from './components/Dashboard/FilterPage/FilterPage.jsx';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
     <Route path="/sent" element={<Sent/>} />
     <Route path="/confirmation" element={<Confirmation/>} />
     <Route path="/course-page" element={<CoursePage/>} />
+    <Route path="/filter" element={<FilterPage/>} />
     
       
     </Routes>

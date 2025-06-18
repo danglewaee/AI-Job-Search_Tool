@@ -73,17 +73,17 @@ const SignupPageBasic = () => {
   };
 
   return (
-    <div className="page-wrapper">
-      <div className="container">
-        <div className="sidebar">
-          <div className="step-indicator">
-            <div className="step active">1. Basic Information</div>
+        <div className="page-wrapper">
+          <div className="container">
+            <div className="sidebar">
+              <div className="step-indicator">
+                  <div className="step active">1. Basic Information</div>
             
             <div className="step">2. Preferences</div>
           </div>
-        </div>
+          </div>
 
-        <div className="form-container">
+          <div className="form-container">
           <h2>Create your account</h2>
           <form onSubmit={handlesignup}>
             {/* have remoeved the required for testing purposes, re add it incase i forget to put it  */}
@@ -97,42 +97,42 @@ const SignupPageBasic = () => {
        
             <div className="gender-options">
             <label style={{ display: 'inline-flex', alignItems: 'center', marginRight: '1rem' }}>
-  <input
-    type="radio"
-    name="gender"
-    value="Male"
-    onChange={handlecreds}
-    checked={usercreds.gender === 'Male'}
-    style={{ marginRight: '0.25rem' }}
-  />
-  Male
-</label>
+              <input
+                type="radio"
+                name="gender"
+                value="Male"
+                onChange={handlecreds}
+                checked={usercreds.gender === 'Male'}
+                style={{ marginRight: '0.25rem' }}
+              />
+              Male
+            </label>
 
-{/* Female */}
-<label style={{ display: 'inline-flex', alignItems: 'center' }}>
-  <input
-    type="radio"
-    name="gender"
-    value="Female"
-    onChange={handlecreds}
-    checked={usercreds.gender === 'Female'}
-    style={{ marginRight: '0.25rem' }}
-  />
-  Female
-</label>
+            {/* Female */}
+            <label style={{ display: 'inline-flex', alignItems: 'center' }}>
+            <input
+            type="radio"
+            name="gender"
+            value="Female"
+            onChange={handlecreds}
+            checked={usercreds.gender === 'Female'}
+            style={{ marginRight: '0.25rem' }}
+              />
+              Female
+                  </label>
 
+                    </div>
+
+                    <button type="submit"  className="next-button">
+                    
+                      Next <img src={arrowIcon} alt="arrow" />
+                    </button>
+                    <p className="login-link">Already have an account? <Link to="/">Login</Link></p>
+                  </form>
+                </div>
+              </div>
             </div>
-
-            <button type="submit"  className="next-button">
-            
-              Next <img src={arrowIcon} alt="arrow" />
-            </button>
-            <p className="login-link">Already have an account? <Link to="/">Login</Link></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  );
-};
+          );
+        };
 
 export default SignupPageBasic;
