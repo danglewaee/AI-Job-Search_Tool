@@ -9,6 +9,7 @@ import Sent from './components/UserAuthentication/ForgotPassword/Sent.jsx'
 import Confirmation from './components/UserAuthentication/ForgotPassword/Confirmation.jsx'
 import CoursePage from './components/Dashboard/CoursePage/CoursePage.jsx'
 import FilterPage from './components/Dashboard/FilterPage/FilterPage.jsx';
+import RoadmapTree from './components/Dashboard/RoadmapPage/RoadmapPage.jsx';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
     <Route path="/confirmation" element={<Confirmation/>} />
     <Route path="/course-page" element={<CoursePage/>} />
     <Route path="/filter" element={<FilterPage/>} />
+    <Route path="/tree" element={<RoadmapTree/>} />
     
       
     </Routes>

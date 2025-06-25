@@ -1,6 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Tree from 'react-d3-tree';
-import rawData from '../components/RoadmapPage/roadmapData.json';
+import rawData from '../RoadmapPage/Roadmap.json';
+import './RoadmapPage.css';
 
 function formatTree(raw) {
   const groups = raw.reduce((acc, item) => {
@@ -25,24 +26,22 @@ function formatTree(raw) {
 }
 
 const CustomNode = ({ nodeDatum }) => {
-  if (!nodeDatum.name) return null;
   return (
     <g>
       <rect
-        x={-60}
-        y={-15}
-        width={120}
-        height={30}
-        fill="#FFF4C1"
-        stroke="#E2B71D"
-        rx={6}
+        width="150"
+        height="40"
+        x="-75"
+        y="-20"
+        fill="#FDF6E3"
+        stroke="#FFB400"
+        strokeWidth="2"
+        rx="10"
       />
       <text
-        x={0}
-        y={0}
         textAnchor="middle"
         alignmentBaseline="middle"
-        fontSize={11}
+        fontSize="12"
         fill="#333"
       >
         {nodeDatum.name}
@@ -53,32 +52,30 @@ const CustomNode = ({ nodeDatum }) => {
 
 export default function RoadmapTree() {
   const [treeData, setTreeData] = useState([]);
+  const treeRef = useRef();
 
   useEffect(() => {
     setTreeData(formatTree(rawData));
   }, []);
 
-  if (treeData.length === 0) return <div>Loading roadmap…</div>;
-
-  const width = window.innerWidth;
-  const height = window.innerHeight * 0.85;
+  if (treeData.length === 0) return <div className="loading-msg">Loading roadmap…</div>;
 
   const treeRoot = { name: '', children: treeData };
 
   return (
-    <div style={{ width: '100%', height }}>
+    <div className="roadmap-tree-container">
       <Tree
+        ref={treeRef}
         data={[treeRoot]}
         orientation="vertical"
-        translate={{ x: width / 2.5, y: height / 2 }}
+        translate={{ x: window.innerWidth / 2, y: 100 }}
         pathFunc="diagonal"
         renderCustomNodeElement={CustomNode}
         zoomable
         collapsible={false}
         separation={{ siblings: 1.5, nonSiblings: 2 }}
-        linkSvgProps={{ stroke: '#E2B71D', strokeWidth: 1.2, strokeDasharray: '3,3' }}
+        linkSvgProps={{ stroke: '#E2B71D', strokeWidth: 1.5, strokeDasharray: '4,2' }}
       />
     </div>
   );
 }
-

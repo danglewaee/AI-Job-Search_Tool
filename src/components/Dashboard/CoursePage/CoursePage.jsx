@@ -4,7 +4,7 @@ import youtube from "./youtube.json";
 import { Link } from "react-router-dom";
 
 export default function CoursePage() {
-  const API_KEY = "****"; // Add environment variable API Key
+  const API_KEY = "AIzaSyAr5O1Sb3AVdDxofbFDbeR8jTTNLsojfOE"; // Add environment variable API Key
   const [searchQuery, setSearchQuery] = useState("");
   const [videoData, setVideoData] = useState([]);
 
@@ -29,7 +29,7 @@ export default function CoursePage() {
 
   return (
     <div>
-      <p>Apple</p>
+      <p>Search for Courses</p>
       <input
         type="text"
         placeholder="Search for Courses"

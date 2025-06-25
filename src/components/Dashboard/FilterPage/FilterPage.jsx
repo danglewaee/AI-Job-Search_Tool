@@ -2,6 +2,7 @@ import React from 'react';
 import './FilterPage.css'; // Make sure this CSS file exists and is imported
 import { useState } from 'react';
 import { RiCarouselView } from 'react-icons/ri';
+import { Link } from "react-router-dom";
 
 
 const StyledForm = () => {
@@ -78,10 +79,7 @@ const StyledForm = () => {
 
           <div className="form-action">
           
-            <a href="#" className="form-link">
-           <span style={{color:'black'}}> Go back to home page? </span> 
-           Click here
-            </a>
+           <Link to="/"><p> Go back to home page? </p></Link>
             <br />
             <button type="submit" className="submit-button">
               Submit
@@ -94,39 +92,25 @@ const StyledForm = () => {
 
 
     </div>
-    <br></br>
-    <ul>
-          {courses.map((course, idx) => (
-            <li key={idx}>
-              {/* <strong>{course.title}</strong><br /> */}
-            
-              <a href={course.link} target="_blank" rel="noreferrer">Subject: {course.course_name}</a>
-               <br></br>
-               
-
-              <br></br>
-              <a>Course level: {course.course_level}</a>
-              <br></br>
-              Course Language: {course.course_language}
-              <br></br>
-               Course provider: {course.course_provider}
-               <br></br>
-               Course-rating: {course.course_avg_rating}
-              <br></br>
-              Course id- {course.course_id}
-              <br></br>
-              Course subject- {course.course_subject}
-              <br></br>
-              Course is free- {String(course.course_is_free)}
-              <br></br>
-              Course institution- {course.course_institution}
-              <br></br>
-              Course is classroom -{String(course.is_classroom)}
-              <br></br>
-              Course certificate-{String(course.course_certificate)}
-            </li>
-          ))}
-        </ul>
+    <div className="course-cards">
+        {courses.map((course, idx) => (
+          <div className="course-card" key={idx}>
+            <h3>{course.course_name}</h3>
+            <p><strong>Level:</strong> {course.course_level}</p>
+            <p><strong>Language:</strong> {course.course_language}</p>
+            <p><strong>Provider:</strong> {course.course_provider}</p>
+            <p><strong>Rating:</strong> {course.course_avg_rating}</p>
+            <p><strong>Institution:</strong> {course.course_institution}</p>
+            <p><strong>Subject:</strong> {course.course_subject}</p>
+            <p><strong>Free:</strong> {String(course.course_is_free)}</p>
+            <p><strong>Classroom:</strong> {String(course.is_classroom)}</p>
+            <p><strong>Certificate:</strong> {String(course.course_certificate)}</p>
+            <a href={course.link} target="_blank" rel="noreferrer" className="course-link">
+              Visit Course
+            </a>
+          </div>
+        ))}
+      </div>
     </div>
    
   );
