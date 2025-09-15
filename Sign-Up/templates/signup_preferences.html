@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Create Account</title>
+  <style>
+  
+    * { box-sizing: border-box; }
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      background-color: #f2f4f7;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 20px;
+    }
+    .container {
+      display: flex;
+      flex-direction: row;
+      max-width: 900px;
+      width: 100%;
+      background-color: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 25px rgba(0, 0, 0, 0.1);
+      overflow: hidden;
+      border: 1px solid #ddd;
+    }
+    .sidebar {
+      width: 30%;
+      background-color: #fafafa;
+      padding: 20px;
+      border-right: 1px solid #e0e0e0;
+    }
+    .step-indicator {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      padding-top: 30px;
+      padding-left: 10px;
+    }
+    .step {
+      position: relative;
+      padding: 12px 20px;
+      border-left: 4px solid transparent;
+      font-size: 16px;
+      color: #555;
+      transition: all 0.3s ease;
+    }
+    .step.active {
+      background-color: #fff3e0;
+      border-left: 4px solid #ff8c00;
+      font-weight: bold;
+      color: #ff8c00;
+      box-shadow: inset 2px 0 0 #ff8c00;
+      border-radius: 4px;
+    }
+    .form-container {
+      flex: 1;
+      padding: 40px;
+    }
+    h2 {
+      margin-bottom: 25px;
+      font-size: 24px;
+      color: #222;
+    }
+    input, select {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 15px;
+      background-color: #fafafa;
+    }
+    .next-button {
+      width: 100%;
+      padding: 14px;
+      background-color: #ff8c00;
+      color: black;
+      font-size: 16px;
+      font-weight: bold;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      margin-top: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      transition: background-color 0.2s ease;
+    }
+    .next-button:hover {
+      background-color: #e57a00;
+    }
+    .next-button img {
+      width: 18px;
+      height: 18px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="sidebar">
+      <div class="step-indicator">
+        <div class="step"><a>1. Basic Information</a></div>
+        <div class="step active"><a>2. Preferences</a></div>
+      </div>
+    </div>
+
+    <div class="form-container">
+      <h2>Preferences</h2>
+      <form method="post" action="/signup/preferences">
+        <label for="cs-field">CS field you are interested in</label>
+        <select id="cs-field" name="cs-field" required>
+          <option value="">Select an option</option>
+          <option value="swe">Software Engineering</option>
+          <option value="ml/ai">ML/AI</option>
+          <option value="web">Web Development</option>
+          <option value="cybersec">Cybersecurity</option>
+          <option value="ds">Data Science</option>
+          <option value="game">Game Development</option>
+          <option value="mobile">Mobile Development</option>
+        </select>
+
+        <label for="proficiency">Rate your proficiency</label>
+        <select id = "proficiency" name ="proficiency" required>
+          <option value="">Select an option</option>
+          <option value="beginner">Beginner</option>
+          <option value="intermediate">Intermediate</option>
+          <option value="advanced">Advanced</option>
+        </select>
+
+        <label for="skills">Skills you know</label>
+        <select id = "skills" name ="skills" required>
+          <option value="">Select an option</option>
+          <option value="python">Python</option>
+          <option value="java">Java</option>
+          <option value="javascript">JavaScript</option>
+          <option value="c++">C++</option>
+          <option value="html/css">HTML/CSS</option>
+          <option value="sql">SQL</option>
+          <option value="ruby">Ruby</option>
+          <option value="php">PHP</option>
+          <option value="swift">Swift</option>
+          <option value="others">Kotlin</option>
+        </select>
+
+        <label for="role">What role are you looking for?</label>
+        <select id="role" name="role" required>
+          <op2tion value="">Select an option</option>
+          <option value="internship">Internship</option>
+          <option value="full-time">Full-time</option>
+          <option value="part-time">Part-time</option>
+        </select>
+        
+         <label for="course-type">Type of courses</label>
+        <select id="course-type" name="course-type" required>
+          <option value="">Select an option</option>
+          <option value="free">Free</option>
+          <option value="paid">Paid</option>
+          <option value="both">Both</option>
+        </select>
+
+        <label for ="others">Any other Preferences</label>
+        <input type="text" id="others" name="others" placeholder="Enter your preferences here..." />
+
+        <button class="next-button" type="submit">
+          Submit <img src="./Images/arrowblack.png" alt="arrow" />
+        </button>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

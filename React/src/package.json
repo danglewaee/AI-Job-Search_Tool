@@ -1,0 +1,27 @@
+{
+  "name": "job_search",
+  "version": "1.0.0",
+  "description": "AI-powered job search tool",
+  "keywords": [
+    "AI",
+    "project"
+  ],
+  "license": "MIT",
+  "author": "Dang Le/ Anish",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "start": "node src/index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "react": "19.0.0",
+    "react-dom": "19.0.0"
+  },
+  "devDependencies": {
+    "vite": "11.1.0" 
+  }
+}
